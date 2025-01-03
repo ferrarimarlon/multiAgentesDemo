@@ -1,0 +1,12 @@
+https://github.com/igniterealtime/Openfire/releases/download/v4.7.5/openfire_4_7_5.exe
+https://sourceforge.net/projects/pidgin/files/Pidgin/2.14.13/pidgin-2.14.13-offline.exe/download
+https://adoptium.net/download/
+
+0- Instalar Adoptium Windows/x86/JRE/8LTS
+1- Instalar Openfire
+2- Instalar Pidgin pidgin-2.14.13
+3- configurar profmarlon no domínio
+4- criar usuários
+5- conectar no pidgin usuário no formato Nome: vendedor domínio: localhost senha...
+6- iniciar agentes SPade
+7- conversa com usuário@profmarlon/recurso
