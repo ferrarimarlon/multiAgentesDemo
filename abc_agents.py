@@ -151,7 +151,7 @@ class atendente_agente(agente_suporte):
             reply.body = message
             print(reply)
             try:
-                await self.send(await super().send(reply))
+                await self.send(reply)
             except:
                 pass
 
@@ -162,14 +162,12 @@ class atendente_agente(agente_suporte):
                 if 'humano' in str(msg.sender):
                     print(f"Mensagem Recebida: {msg.body}")
                     # dispara as tarefas aos agentes
-                    await asyncio.gather(
-                        self.envia_mensagem('cadastro@localhost/agentic',
-                                            str(msg.sender)),
-                        self.envia_mensagem('cobranca@localhost/agentic',
-                                            str(msg.sender)),
-                        self.envia_mensagem('qualidade@localhost/agentic',
-                                            str(msg.sender))
-                    )
+                    await self.envia_mensagem('cadastro@localhost/agentic',
+                                        str(msg.sender)),
+                    await self.envia_mensagem('cobranca@localhost/agentic',
+                                        str(msg.sender)),
+                    await self.envia_mensagem('qualidade@localhost/agentic',
+                                        str(msg.sender))
 
                 if 'agentic' in str(msg.sender):
                     # Processa a mensagem utilizando a API OpenAI
