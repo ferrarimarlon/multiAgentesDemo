@@ -1,12 +1,15 @@
-https://github.com/igniterealtime/Openfire/releases/download/v4.7.5/openfire_4_7_5.exe
-https://sourceforge.net/projects/pidgin/files/Pidgin/2.14.13/pidgin-2.14.13-offline.exe/download
-https://adoptium.net/download/
 
 0- Instalar Adoptium Windows/x86/JRE/8LTS
+    https://adoptium.net/download/
 1- Instalar Openfire
+    https://github.com/igniterealtime/Openfire/releases/download/v4.7.5/openfire_4_7_5.exe
 2- Instalar Pidgin pidgin-2.14.13
-3- configurar profmarlon no domínio
+    https://sourceforge.net/projects/pidgin/files/Pidgin/2.14.13/pidgin-2.14.13-offline.exe/download
+3- configurar o nome do domínio
 4- criar usuários
-5- conectar no pidgin usuário no formato Nome: vendedor domínio: localhost senha...
-6- iniciar agentes SPade
-7- conversa com usuário@profmarlon/recurso
+5 - Instalar plugin Subscription
+6- conectar no pidgin usuário no formato 
+    Nome: vendedor 
+    domínio: localhost senha...
+7- iniciar agentes Spade
+8- conversa com usuário@dominio/recurso
