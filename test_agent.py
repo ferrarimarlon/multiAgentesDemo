@@ -8,16 +8,16 @@ class MyAgent(agent.Agent):
     class enviarMensagem(OneShotBehaviour):
         async def run(self):
             try:
-                reply = Message(to="jonas@profmarlon/humano")
+                reply = Message(to="prof@profmarlon/humano")
                 reply.set_metadata("performative", "inform")
-                reply.set_metadata("language", "en")
-                reply.body = "teste X"
+                reply.set_metadata("language", "pt")
+                reply.body = "Olá Mundo!"
                 await self.send(reply)
             except:
                 pass
 
     async def setup(self):
-        print("Atendente Online")
+        print("Agente Online")
         # Adiciona o comportamento de escuta
         enviar = self.enviarMensagem()
         self.add_behaviour(enviar)
@@ -25,7 +25,7 @@ class MyAgent(agent.Agent):
 
 async def main():
     # Start the agent
-    my_agent = MyAgent("atendente_responder@localhost/agentic", "ate2")
+    my_agent = MyAgent("agente_teste@localhost/agentic", "ate2")
     await my_agent.start()  # Await the coroutine to start the agent
 
     # Run the agent for a while, then stop
