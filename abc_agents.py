@@ -29,7 +29,7 @@ class agente_suporte(Agent):
         de receberem uma mensagem e processar na base.
         '''
         async def run(self):
-            # Aguarda mensagem
+            # Aguarda mensagem (segundos)
             msg = await self.receive(timeout=10)
 
             if msg:
@@ -44,7 +44,7 @@ class agente_suporte(Agent):
                 try:
                     await self.send(reply)
                 except:
-                    # Reset the behavior after sending the message
+                    # Reinicia o comportamento após mensagem enviada (BUG)
                     print("Reiniciando comportamento após mensagem enviada...")
                     self.agent.remove_behaviour(self)
                     await self.agent.setup()
@@ -63,10 +63,10 @@ class cadastro_agente(agente_suporte):
     Checa se o usuário atual está cadastrado
     '''
     async def processa_base(self, id_cliente):
-        # Load the CSV file into a DataFrame
+        # Carrega a base dos clientes
         df = pd.read_csv('clientes_streaming.csv', sep=';')
 
-        # Search for rows where the ID column equals 123
+        # Busca a linha do cliente
         result = df[df['ID'] == id_cliente]
         if not result.empty:
             result = result.to_numpy().flatten()
@@ -77,7 +77,7 @@ class cadastro_agente(agente_suporte):
 
 class cobranca_agente(agente_suporte):
     '''
-    Checa se o usuário atual está em dia e não cancelou
+    Checa o status da assinatura do cliente
     '''
     async def processa_base(self, id_cliente):
         df = pd.read_csv('clientes_streaming.csv', sep=';')
@@ -125,7 +125,9 @@ class qualidade_agente(agente_suporte):
 
 
 class atendente_agente(agente_suporte):
-
+    '''
+    agente que processa as mensagens do usuário e direciona o fluxo
+    '''
     async def process_message(self, user_message, context):
         # formas simples de ler a chave openai
         with open('openai_key.txt', 'r') as file:
